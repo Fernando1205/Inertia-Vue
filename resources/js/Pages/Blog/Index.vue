@@ -1,13 +1,13 @@
 <script>
     import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
     import { Head } from '@inertiajs/inertia-vue3';
-    import  Button  from '@/Components/Button.vue';
+    import LinkButton from '@/Components/LinkButton.vue';
 
     export default {
         components:{
             BreezeAuthenticatedLayout,
             Head,
-            Button
+            LinkButton
         },
         props:{
             blogs: Object
@@ -35,7 +35,7 @@
                                 <p>A list of all blogs in your account.</p>
                             </div>
                             <div>
-                                <Button class="float-right">Add blog</Button>
+                                <LinkButton :href="route('blogs.create')" class="float-right">Add Blog</LinkButton>
                             </div>
                         </section>
                         <section class="border-solid border-2 border-gray-100 rounded-lg shadow-lg">

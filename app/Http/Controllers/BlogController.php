@@ -18,8 +18,7 @@ class BlogController extends Controller
         $blogs = Blog::all();
 
         return Inertia::render(
-            'Blog/Index',
-            ['blogs' => $blogs]
+            'Blog/Index',compact('blogs')
         );
     }
 
@@ -30,7 +29,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render(
+            'Blog/Create');
     }
 
     /**
