@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -39,9 +40,15 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        //
+        Blog::create([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('blogs.index')->with('message','Saved succesfully');
     }
 
     /**
