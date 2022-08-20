@@ -2,6 +2,7 @@
     import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
     import { Head } from '@inertiajs/inertia-vue3';
     import LinkButton from '@/Components/LinkButton.vue';
+    import Swal from 'sweetalert2';
 
     export default {
         components:{
@@ -10,7 +11,17 @@
             LinkButton
         },
         props:{
-            blogs: Object
+            blogs: Object,
+            flash: Object,
+        },
+        mounted(){
+            if(this.flash.message !== null) {
+                Swal.fire(
+                'Success!',
+                `${this.flash.message}`,
+                'success'
+                )
+            }
         }
     }
 

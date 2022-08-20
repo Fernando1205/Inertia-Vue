@@ -26,7 +26,7 @@
             function submit() {
                 Inertia.post(route('blogs.store'),form,{
                     preserveScroll:true,
-                    onSuccess: () => console.log('hecho'),
+                    onSuccess: () => console.log('Hecho')
                 })
             }
             return { form, submit }
