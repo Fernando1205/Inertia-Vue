@@ -4,13 +4,15 @@
     import  Button  from '@/Components/Button.vue';
     import { Inertia } from '@inertiajs/inertia';
     import { reactive } from 'vue';
+    import InputError from '@/Components/InputError.vue';
 
     export default {
         components:{
             BreezeAuthenticatedLayout,
             Head,
             Button,
-            Link
+            Link,
+            InputError
         },
         props:{
             errors: Object
@@ -52,14 +54,15 @@
                                 <span class="block text-sm font-medium text-slate-700">Title</span>
                                 <input v-model="form.title" type="text" id="title" name="title" placeholder="Title...."
                                     class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <div v-if="errors.title" class="text-red-600">{{ errors.title }}</div>
+                                <InputError :message="errors.title"></InputError>
                             </label>
 
                              <label class="block mb-4">
                                 <span class="block text-sm font-medium text-slate-700">Slug</span>
                                 <input v-model="form.slug" type="text" id="slug" name="slug" placeholder="Slug...."
                                     class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <div v-if="errors.slug" class="text-red-600">{{ errors.slug }}</div>
+                                <InputError :message="errors.slug"></InputError>
+
                             </label>
 
                              <label class="block mb-4">
@@ -67,7 +70,7 @@
                                 <textarea v-model="form.content" type="text" id="content" name="content" placeholder="Content...."
                                     class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                                 </textarea>
-                                <div v-if="errors.content" class="text-red-600">{{ errors.content }}</div>
+                                <InputError :message="errors.content"></InputError>
                             </label>
 
                             <Button type="submit">Send</Button>
