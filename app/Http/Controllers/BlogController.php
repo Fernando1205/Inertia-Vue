@@ -48,7 +48,9 @@ class BlogController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('blogs.index')->with('message','Saved succesfully');
+        return redirect()
+            ->route('blogs.index')
+            ->with('message','Saved succesfully');
     }
 
     /**
@@ -72,7 +74,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return Inertia::render(
+            'Blog/Edit',compact('blog')
+        );
     }
 
     /**
@@ -82,9 +86,17 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(BlogRequest $request, Blog $blog)
     {
-        //
+        $blog->update([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'content' => $request->content,
+        ]);
+
+        return redirect()
+            ->route('blogs.index')
+            ->with('message','Update succesfully');
     }
 
     /**

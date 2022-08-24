@@ -74,7 +74,7 @@
                                         <td class="p-3 bg-white">{{ blog.content }}</td>
                                         <td class="p-3 bg-white">
                                             <LinkButton :href="route('blogs.show', blog)" class="mr-1">Show</LinkButton>
-                                            <LinkButton>Editar</LinkButton>
+                                            <LinkButton :href="route('blogs.edit', blog)">Editar</LinkButton>
                                         </td>
                                     </tr>
                                 </tbody>
