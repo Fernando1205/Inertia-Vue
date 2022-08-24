@@ -63,8 +63,8 @@
                                     <tr>
                                         <th class="p-3 bg-white rounded-tl-lg">Title</th>
                                         <th class="p-3 bg-white">Slug</th>
-                                        <th class="p-3 bg-white rounded-tr-lg">Content</th>
-                                        <th class="p-3 bg-white rounded-tr-lg"></th>
+                                        <th class="p-3 bg-white rounded-tr-lg w-7/12">Content</th>
+                                        <th class="p-3 bg-white rounded-tr-lg">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +73,8 @@
                                         <td class="p-3 bg-white">{{ blog.slug }}</td>
                                         <td class="p-3 bg-white">{{ blog.content }}</td>
                                         <td class="p-3 bg-white">
-                                            <a href="#">Edit</a>
+                                            <LinkButton :href="route('blogs.show', blog)" class="mr-1">Show</LinkButton>
+                                            <LinkButton>Editar</LinkButton>
                                         </td>
                                     </tr>
                                 </tbody>
