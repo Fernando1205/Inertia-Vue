@@ -73,7 +73,7 @@
                                 <InputError :message="errors.content"></InputError>
                             </label>
 
-                            <Button type="submit">Send</Button>
+                            <Button type="submit" class="bg-green-700">Send</Button>
                         </form>
 
 

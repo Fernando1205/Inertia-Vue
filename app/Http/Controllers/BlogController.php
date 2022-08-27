@@ -96,7 +96,7 @@ class BlogController extends Controller
 
         return redirect()
             ->route('blogs.index')
-            ->with('message','Update succesfully');
+            ->with('message','Updated succesfully');
     }
 
     /**
@@ -107,6 +107,10 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return redirect()
+            ->route('blogs.index')
+            ->with('message','Deleted succesfully');
     }
 }
